@@ -169,6 +169,12 @@ export function initDb() {
     WHERE id = 'prod-tapioca-carne-sol-nata'
       AND image_url = 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/tapioca-frango.png'
+    WHERE id = 'prod-tapioca-frango'
+      AND image_url = 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -672,7 +678,7 @@ function seedDefaultData() {
       description: 'Tapioca macia e fresquinha, recheada com frango desfiado suculento bem temperado com ervas especiais.',
       price: 12.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/tapioca-frango.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true }),
