@@ -1,24 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
-import db from '@/lib/db';
+import { supabaseAdmin } from '@/lib/supabase/server';
+import { adminSessionCookie, adminSessionLifetimeSeconds, createAdminSession, hasAdminSession } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(req: NextRequest) {
-  try {
-    const { password } = await req.json();
-
-    const storedPassRow = db.prepare("SELECT value FROM store_settings WHERE key = 'admin_password'").get() as { value: string } | undefined;
-    const currentPassword = storedPassRow ? storedPassRow.value : 'snoopy123';
-
-    if (password === currentPassword) {
-      // Retornar um token simples de sessão
-      const token = `adm_token_${Buffer.from(password + '_snoopy_secret').toString('base64')}`;
-      return NextResponse.json({ success: true, token });
-    }
-
-    return NextResponse.json({ success: false, error: 'Senha incorreta' }, { status: 401 });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: 'Erro no servidor' }, { status: 500 });
-  }
+export async function GET(req: NextRequest) {
+  return NextResponse.json({ success: hasAdminSession(req) });
 }
 
+export async function POST(req: NextRequest) {
+  const { password } = await req.json();
+  const { data, error } = await supabaseAdmin.from('store_settings').select('value').eq('key', 'admin_password').maybeSingle();
+  if (error) return NextResponse.json({ success: false, error: 'Erro no servidor' }, { status: 500 });
+  if (password !== (data?.value || 'snoopy123')) return NextResponse.json({ success: false, error: 'Senha incorreta' }, { status: 401 });
+
+  const response = NextResponse.json({ success: true });
+  response.cookies.set(adminSessionCookie, createAdminSession(), {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/api/admin',
+    maxAge: adminSessionLifetimeSeconds,
+  });
+  return response;
+}
+
+export async function DELETE() {
+  const response = NextResponse.json({ success: true });
+  response.cookies.set(adminSessionCookie, '', { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', path: '/api/admin', maxAge: 0 });
+  return response;
+}

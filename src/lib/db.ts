@@ -1,15 +1,6 @@
 import Database from 'better-sqlite3';
-import path from 'path';
-import fs from 'fs';
 
-const dataDir = path.join(process.cwd(), 'data');
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
-
-const dbPath = path.join(dataDir, 'snoopy.db');
-const db = new Database(dbPath);
-db.pragma('journal_mode = WAL');
+const db = new Database(':memory:');
 
 // Inicialização de tabelas
 export function initDb() {
@@ -1011,8 +1002,21 @@ function seedDefaultData() {
   }
 }
 
-// Inicializa o banco automaticamente
+// Inicializa os dados padrão em memória para importá-los uma vez ao Supabase.
 initDb();
+
+export function getSeedData() {
+  return {
+    categories: db.prepare('SELECT * FROM categories').all(),
+    products: (db.prepare('SELECT * FROM products').all() as Array<Record<string, unknown>>).map((product) => ({
+      ...product,
+      options_config: product.options_config ? JSON.parse(String(product.options_config)) : null,
+    })),
+    neighborhoods: db.prepare('SELECT * FROM neighborhoods').all(),
+    customization_options: db.prepare('SELECT * FROM customization_options').all(),
+    store_settings: db.prepare('SELECT * FROM store_settings').all(),
+  };
+}
 
 export default db;
 

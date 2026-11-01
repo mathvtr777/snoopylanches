@@ -123,14 +123,26 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    const isAuth = sessionStorage.getItem('snoopy_admin_auth');
-    if (isAuth === 'true') {
-      setIsAuthenticated(true);
-      loadData();
-    }
+    const restoreSession = async () => {
+      try {
+        const response = await fetch('/api/admin/auth');
+        const result = await response.json();
+        if (result.success) {
+          setIsAuthenticated(true);
+          sessionStorage.setItem('snoopy_admin_auth', 'true');
+          loadData();
+        } else {
+          sessionStorage.removeItem('snoopy_admin_auth');
+        }
+      } catch {
+        sessionStorage.removeItem('snoopy_admin_auth');
+      }
+    };
+    restoreSession();
   }, []);
 
   const handleLogout = () => {
+    fetch('/api/admin/auth', { method: 'DELETE' });
     sessionStorage.removeItem('snoopy_admin_auth');
     setIsAuthenticated(false);
     setPassword('');
