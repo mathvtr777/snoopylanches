@@ -139,6 +139,18 @@ export function initDb() {
     WHERE id = 'prod-suco-leite-uva'
       AND image_url = 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-morango.png'
+    WHERE id = 'prod-suco-agua-morango'
+      AND image_url = 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80'
+  `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-morango.png'
+    WHERE id = 'prod-suco-leite-morango'
+      AND image_url = 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -777,7 +789,7 @@ function seedDefaultData() {
       description: 'Morangos selecionados batidos na hora na água.',
       price: 8.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-morango.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
@@ -863,7 +875,7 @@ function seedDefaultData() {
       description: 'A clássica vitamina de morango bem cremosa e aveludada.',
       price: 9.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-morango.png',
       is_active: 1,
       is_featured: 1,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
