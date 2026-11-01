@@ -85,6 +85,12 @@ export function initDb() {
     WHERE id = 'prod-refri-1l'
       AND image_url = 'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/refrigerante-lata-350ml.png'
+    WHERE id = 'prod-refri-lata'
+      AND image_url = 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -871,7 +877,7 @@ function seedDefaultData() {
       description: 'Lata 350ml trincando de gelada. Escolha sua preferência.',
       price: 6.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/refrigerante-lata-350ml.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({
