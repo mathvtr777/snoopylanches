@@ -115,6 +115,18 @@ export function initDb() {
     WHERE id = 'prod-suco-leite-goiaba'
       AND image_url = 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-graviola.png'
+    WHERE id = 'prod-suco-agua-graviola'
+      AND image_url = 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=800&q=80'
+  `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-graviola.png'
+    WHERE id = 'prod-suco-leite-graviola'
+      AND image_url = 'https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -725,7 +737,7 @@ function seedDefaultData() {
       description: 'Polpa nobre de graviola batida na água gelada.',
       price: 8.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-graviola.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
@@ -811,7 +823,7 @@ function seedDefaultData() {
       description: 'Deliciosa combinação de graviola com leite cremoso.',
       price: 9.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-graviola.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
