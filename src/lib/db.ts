@@ -103,6 +103,18 @@ export function initDb() {
     WHERE id = 'prod-suco-leite-caju'
       AND image_url = 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-goiaba.png'
+    WHERE id = 'prod-suco-agua-goiaba'
+      AND image_url = 'https://images.unsplash.com/photo-1546883446-2433f4a080eb?auto=format&fit=crop&w=800&q=80'
+  `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-goiaba.png'
+    WHERE id = 'prod-suco-leite-goiaba'
+      AND image_url = 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -699,7 +711,7 @@ function seedDefaultData() {
       description: 'Suco natural de goiaba vermelha bem geladinho e refrescante.',
       price: 6.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1546883446-2433f4a080eb?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-goiaba.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
@@ -785,7 +797,7 @@ function seedDefaultData() {
       description: 'Vitamina de goiaba com leite, cremosa e saborosa.',
       price: 8.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-goiaba.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
