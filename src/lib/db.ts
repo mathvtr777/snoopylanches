@@ -79,6 +79,12 @@ export function initDb() {
   `);
 
   seedDefaultData();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/refrigerante-1l.png'
+    WHERE id = 'prod-refri-1l'
+      AND image_url = 'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -881,7 +887,7 @@ function seedDefaultData() {
       description: 'Garrafa 1 Litro gelada para acompanhar seu lanche.',
       price: 9.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/refrigerante-1l.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({
