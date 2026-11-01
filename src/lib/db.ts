@@ -151,6 +151,18 @@ export function initDb() {
     WHERE id = 'prod-suco-leite-morango'
       AND image_url = 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-caja.png'
+    WHERE id = 'prod-suco-agua-caja'
+      AND image_url = 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=800&q=80'
+  `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-caja.png'
+    WHERE id = 'prod-suco-leite-caja'
+      AND image_url = 'https://images.unsplash.com/photo-1546883446-2433f4a080eb?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -803,7 +815,7 @@ function seedDefaultData() {
       description: 'O autêntico e ácido cajá do Nordeste batido com água bem gelada.',
       price: 8.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-caja.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
@@ -889,7 +901,7 @@ function seedDefaultData() {
       description: 'O sabor marcante do cajá combinado com a cremosidade do leite.',
       price: 9.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1546883446-2433f4a080eb?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-caja.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
