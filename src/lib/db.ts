@@ -91,6 +91,18 @@ export function initDb() {
     WHERE id = 'prod-refri-lata'
       AND image_url = 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-caju.png'
+    WHERE id = 'prod-suco-agua-caju'
+      AND image_url = 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80'
+  `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-caju.png'
+    WHERE id = 'prod-suco-leite-caju'
+      AND image_url = 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -673,7 +685,7 @@ function seedDefaultData() {
       description: 'Polpa de caju selecionada batida com água mineral e açúcar a gosto.',
       price: 6.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-caju.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
@@ -759,7 +771,7 @@ function seedDefaultData() {
       description: 'Polpa de caju batida com leite integral geladinho, super encorpado.',
       price: 8.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-caju.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
