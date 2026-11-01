@@ -175,6 +175,12 @@ export function initDb() {
     WHERE id = 'prod-tapioca-frango'
       AND image_url = 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/tapioca-calabresa.png'
+    WHERE id = 'prod-tapioca-calabresa'
+      AND image_url = 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -692,7 +698,7 @@ function seedDefaultData() {
       description: 'Tapioca dobrada na chapa com fatias saborosas de calabresa acebolada com orégano e toque especial.',
       price: 10.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/tapioca-calabresa.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true }),
