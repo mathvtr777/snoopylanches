@@ -28,7 +28,7 @@ export function ProductCard({ product, onOpenModal }: ProductCardProps) {
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className={`${product.slug === 'refrigerante-1l' ? 'object-contain p-2' : 'object-cover group-hover:scale-105'} transition-transform duration-500`}
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#151722] via-transparent to-transparent opacity-80" />
