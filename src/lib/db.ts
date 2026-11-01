@@ -163,6 +163,12 @@ export function initDb() {
     WHERE id = 'prod-suco-leite-caja'
       AND image_url = 'https://images.unsplash.com/photo-1546883446-2433f4a080eb?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/tapioca-carne-de-sol.png'
+    WHERE id = 'prod-tapioca-carne-sol-nata'
+      AND image_url = 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -652,7 +658,7 @@ function seedDefaultData() {
       description: 'Deliciosa tapioca tradicional quentinha e recheada com carne de sol desfiada e legítima nata cremosa da terra.',
       price: 14.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/tapioca-carne-de-sol.png',
       is_active: 1,
       is_featured: 1,
       options_config: JSON.stringify({ allowsNotes: true }),
