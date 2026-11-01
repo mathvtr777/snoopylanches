@@ -127,6 +127,18 @@ export function initDb() {
     WHERE id = 'prod-suco-leite-graviola'
       AND image_url = 'https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=800&q=80'
   `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-uva.png'
+    WHERE id = 'prod-suco-agua-uva'
+      AND image_url = 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80'
+  `).run();
+  db.prepare(`
+    UPDATE products
+    SET image_url = '/images/products/suco-uva.png'
+    WHERE id = 'prod-suco-leite-uva'
+      AND image_url = 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80'
+  `).run();
 }
 
 function seedDefaultData() {
@@ -751,7 +763,7 @@ function seedDefaultData() {
       description: 'Suco de uva saboroso e muito refrescante.',
       price: 8.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-uva.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
@@ -837,7 +849,7 @@ function seedDefaultData() {
       description: 'Vitamina de uva batida no leite gelado.',
       price: 9.00,
       original_price: null,
-      image_url: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80',
+      image_url: '/images/products/suco-uva.png',
       is_active: 1,
       is_featured: 0,
       options_config: JSON.stringify({ allowsNotes: true, sweetOptions: ['Com açúcar', 'Sem açúcar', 'Adoçante'] }),
