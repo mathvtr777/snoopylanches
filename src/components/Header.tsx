@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShoppingBag, Flame, Clock, Shield, Search } from 'lucide-react';
+import Image from 'next/image';
+import { ShoppingBag, Clock, Shield, Search } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatCurrency } from '@/lib/utils';
 import { StoreSettings } from '@/types';
@@ -62,9 +63,13 @@ export function Header({ settings, searchQuery, setSearchQuery }: HeaderProps) {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Identidade Visual */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-amber-500 via-red-600 to-red-700 flex items-center justify-center shadow-lg shadow-red-900/40 group-hover:scale-105 transition-transform">
-            <Flame className="w-6 h-6 text-white animate-pulse" />
-          </div>
+          <Image
+            src="/snoopy-logo.jpg"
+            alt="Logo da Snoopy Lanchonete e Hamburgueria"
+            width={52}
+            height={52}
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover group-hover:scale-105 transition-transform"
+          />
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-lg sm:text-xl font-black tracking-tight text-white uppercase group-hover:text-amber-400 transition-colors">
