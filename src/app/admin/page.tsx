@@ -1222,7 +1222,7 @@ export default function AdminPage() {
                   <label className="text-xs font-bold text-gray-300 block mb-1">Tipo da Chave</label>
                   <input
                     type="text"
-                    value={settings.pix_key_type || 'Telefone'}
+                    value={settings.pix_key_type || 'Chave aleatória'}
                     onChange={(e) => setSettings({ ...settings, pix_key_type: e.target.value })}
                     className="w-full bg-[#1b1e2c] border border-[#2b2f3e] focus:border-amber-500 text-sm text-gray-100 px-3 py-2.5 rounded-xl"
                   />

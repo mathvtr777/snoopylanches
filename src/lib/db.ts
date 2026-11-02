@@ -192,8 +192,8 @@ function seedDefaultData() {
     ['delivery_time', '35-50 min'],
     ['delivery_fee', '3.00'],
     ['min_order', '10.00'],
-    ['pix_key', '84991517640'],
-    ['pix_key_type', 'Telefone'],
+    ['pix_key', 'a7e9d0a9-b047-4845-b32a-d84909a05805'],
+    ['pix_key_type', 'Chave aleatória'],
     ['admin_password', 'snoopy123']
   ];
 
