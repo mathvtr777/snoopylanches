@@ -28,7 +28,7 @@ export function ProductCard({ product, onOpenModal }: ProductCardProps) {
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className={`${['refrigerante-1l', 'refrigerante-lata-350ml', 'suco-caju-agua', 'suco-caju-leite', 'suco-goiaba-agua', 'suco-goiaba-leite', 'suco-graviola-agua', 'suco-graviola-leite', 'suco-uva-agua', 'suco-uva-leite', 'suco-morango-agua', 'suco-morango-leite', 'suco-caja-agua', 'suco-caja-leite'].includes(product.slug) ? 'object-contain p-2' : 'object-cover group-hover:scale-105'} transition-transform duration-500`}
+          className={`${['agua-mineral-510ml', 'refrigerante-1l', 'refrigerante-lata-350ml', 'suco-caju-agua', 'suco-caju-leite', 'suco-goiaba-agua', 'suco-goiaba-leite', 'suco-graviola-agua', 'suco-graviola-leite', 'suco-uva-agua', 'suco-uva-leite', 'suco-morango-agua', 'suco-morango-leite', 'suco-caja-agua', 'suco-caja-leite'].includes(product.slug) ? 'object-contain p-2' : 'object-cover group-hover:scale-105'} transition-transform duration-500`}
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#151722] via-transparent to-transparent opacity-80" />
