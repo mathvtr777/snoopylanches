@@ -564,7 +564,7 @@ function seedDefaultData() {
       is_featured: 0,
       options_config: JSON.stringify({
         allowsNotes: true,
-        beverageChoice: ['Coca-Cola 250ml', 'Guaraná Antarctica 250ml']
+        beverageChoice: ['Dore Cola 250ml', 'Dore Guaraná 250ml']
       }),
       sort_order: 3
     },
